@@ -1,12 +1,13 @@
 /* eslint-disable no-undef */
 /* eslint-disable max-len */
 /* eslint-disable no-unreachable */
-const reconcileOrder = () => {
-  for (let i = 0; i < existingBook.length; i++) if (existingBook[i] === [] &&
-            incomingOrder.type === 'sell') {
-    existingBook.push(incomingOrder)
+const reconcileOrder = (existingBook, incomingOrder) => {
+  
+  let newExistingBook = []
+  if (existingBook.length === 0 ) {
+    newExistingBook.push(incomingOrder)
 
-    return existingBook
+    return newExistingBook
   }
 
   for (let i = 0; i < existingBook.length; i++) if (existingBook[i].type === incomingOrder.type) {
